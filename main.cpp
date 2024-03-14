@@ -60,26 +60,26 @@ enum Coords : uint8_t
 
 uint8_t LHSPaddleChar[8] = 
 {
-  0b00011,
-  0b00011,
-  0b00011,
-  0b00011,
-  0b00011,
-  0b00011,
-  0b00011,
-  0b00011,
+  0b00111,
+  0b00111,
+  0b00111,
+  0b00111,
+  0b00111,
+  0b00111,
+  0b00111,
+  0b00111,
 };
 
 uint8_t RHSPaddleChar[8] =
 {
-  0b11000,
-  0b11000,
-  0b11000,
-  0b11000,
-  0b11000,
-  0b11000,
-  0b11000,
-  0b11000,
+  0b11100,
+  0b11100,
+  0b11100,
+  0b11100,
+  0b11100,
+  0b11100,
+  0b11100,
+  0b11100,
 };
 
 uint8_t ballChar[8] =
@@ -400,7 +400,7 @@ void endGame()
     lcd.printf("YOU WIN!");
     thread_sleep_for(1500);
     lcd.locate(0, 1);
-    lcd.printf("...yay, I guess");
+    lcd.printf("...yay, I guess?");
   }
   else
   {
