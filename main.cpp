@@ -1,5 +1,6 @@
 #include "mbed.h"
 #include "LCD.h"
+#include <cstdint>
 #include <stdint.h>
 
 //led pins
@@ -113,7 +114,6 @@ class gameObject
   }
 };
 
-
 gameObject leftPaddle(LEFT);
 gameObject rightPaddle(RIGHT);
 gameObject ball;
@@ -150,10 +150,13 @@ void endGame();
 int main()
 {
     button.fall(&ISR_Button);
-    srand(6/*seedPin.read()*/);
+    srand(seedPin.read());
+    lcd.cls();
     loadCustomChars();
     welcomeScreen();
     gameInit();
+
+    thread_sleep_for(50);
 
     while(true) 
     {
