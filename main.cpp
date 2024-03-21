@@ -3,6 +3,8 @@
 #include <cstdint>
 #include <stdint.h>
 
+#define CENTER_SCREEN 8 
+
 //led pins
 DigitalOut blue_led(PB_10);
 DigitalOut green_led(PC_7);
@@ -126,7 +128,7 @@ uint8_t rightScore = 0;
 uint8_t maxScore = 3;
 
 uint8_t ballDrawTicker = 0;
-uint8_t delay_value = 80;
+uint8_t delay_value = 60;
 uint8_t ballDrawTickerLimit = delay_value % 9;
 
 LCD lcd(PC_5, PC_4, PA_10, PB_3, PB_5, PB_4);
@@ -286,19 +288,19 @@ void moveBall(gameObject *obj)
   {
     rightScore++;
     drawBall(&ball);
-    obj->x_Pos = 8;
+    obj->x_Pos = CENTER_SCREEN;
     obj->y_Pos = rand() % 2;
     obj->dir = static_cast<LeftRight>(rand() % 2);
-    thread_sleep_for(1000);
+    thread_sleep_for(750);
   }
   if(obj-> x_Pos > 15)
   {
     leftScore++;
     drawBall(&ball);
-    obj->x_Pos = 8;
+    obj->x_Pos = CENTER_SCREEN;
     obj->y_Pos = rand() % 2;
     obj->dir = static_cast<LeftRight>(rand() % 2);
-    thread_sleep_for(1000);
+    thread_sleep_for(750);
   }
 }
 
